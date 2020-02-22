@@ -10,6 +10,9 @@ const Navbar = (props) => {
 			<NavLink to="/profile" activeClassName={s.active}>Profile</NavLink>
 		</div>
 		<div className={s.item}>
+			<NavLink to='/users' activeClassName={s.active}>Users</NavLink>
+		</div>
+		<div className={s.item}>
 			<NavLink to="/dialogs" activeClassName={s.active}>Messages</NavLink>
 		</div>
 		<div className={s.item}>
@@ -19,10 +22,10 @@ const Navbar = (props) => {
 			<NavLink to='/music' activeClassName={s.active}>Music</NavLink>
 		</div>
 		<div className={s.item}>
-			<NavLink to='settings' activeClassName={s.active}>Settings</NavLink>
+			<NavLink to='/settings' activeClassName={s.active}>Settings</NavLink>
 		</div>
 		<div className={s.item}>
-			<NavLink to='friends'><FriendsContainer friendPage={props.friendPage}/></NavLink>
+			<NavLink to='/friends'><FriendsContainer friendPage={props.friendPage}/></NavLink>
 		</div>
 	</nav>
 }
