@@ -4,7 +4,6 @@ import {NavLink} from "react-router-dom";
 import FriendsContainer from "../Friends/FriendsContainer";
 
 const Navbar = (props) => {
-	debugger;
 	return <nav className={s.nav}>
 		<div className={s.item}>
 			<NavLink to="/profile" activeClassName={s.active}>Profile</NavLink>
