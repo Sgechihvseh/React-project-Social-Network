@@ -3,30 +3,29 @@ import s from "./Users.module.css";
 import * as axios from "axios";
 import photo from "../../images/user-icon.svg"
 
-const Users = (props) => {
-    let getUsers = () => {
-        if (props.users.length === 0) {
-            axios.get("https://social-network.samuraijs.com/api/1.0/users").then(responce => {
-                props.SetUsers(responce.data.items)
-            })
-        }
+class Users extends React.Component {
+    constructor(props) {
+        super(props);
+        axios.get("https://social-network.samuraijs.com/api/1.0/users").then(responce => {
+            this.props.SetUsers(responce.data.items)
+        })
     }
 
-    return <div>
-        <button onClick ={getUsers}>Get users</button>
-        {
-            props.users.map(u => <div>
+    render() {
+        return <div>
+            {
+                this.props.users.map(u => <div>
                 <span>
                     <div><img className={s.img} src={u.photos.small != null ? u.photos.small : photo}/></div>
                 <div>
                     {u.followed ? <button onClick={() => {
-                        props.Unfollow(u.id)
+                        this.props.Unfollow(u.id)
                     }}>UnFollowed</button> : <button onClick={() => {
-                        props.Follow(u.id)
+                        this.props.Follow(u.id)
                     }}>Followed</button>}
                 </div>
                 </span>
-                <span>
+                    <span>
                     <span>
                         <div>{u.name}</div>
                         <div>{u.status}</div>
@@ -36,9 +35,10 @@ const Users = (props) => {
                         <div>{"u.location.city"}</div>
                     </span>
                 </span>
-            </div>)
-        }
-    </div>
+                </div>)
+            }
+        </div>
+    }
 }
 
 export default Users;
