@@ -2,3 +2,11 @@
     width: 50px;
     border-radius: 50%;
 }
+.activePage {
+    margin: 0 10px 0 10px;
+}
+.numberPage {
+    color: blue;
+    margin: 0 5px 0 5px;
+}
+
