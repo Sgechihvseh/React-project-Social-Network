@@ -4,13 +4,15 @@ const SET_USERS = 'SET_USERS';
 const SET_TOTAL_COUNT = 'SET_TOTAL_COUNT';
 const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
 const NEXT_PAGE = 'NEXT_PAGE';
+const SET_FETCHING = 'SET_FETCHING';
 
 let initialState = {
     usersData: [],
     totalCount: 20,
     currentPage: 1,
     pageSize: 5,
-    nextPage: 20
+    nextPage: 20,
+    isFetching: true
 }
 
 const usersReducer = (state = initialState, action) => {
@@ -58,6 +60,11 @@ const usersReducer = (state = initialState, action) => {
                 ...state, nextPage: action.nextPage
             }
         }
+        case SET_FETCHING: {
+            return{
+                ...state, isFetching: action.isFetching
+            }
+        }
         default:
             return state;
     }
@@ -71,3 +78,4 @@ export const setUsersAC = (users) => ({type: SET_USERS, users})
 export const setTotalCountAC = (count) => ({type: SET_TOTAL_COUNT, count})
 export const setCurrentPageAC = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage})
 export const nextPageAC = (nextPage) => ({type: NEXT_PAGE, nextPage})
+export const setFetchingAC = (isFetching) => ({type: SET_FETCHING, isFetching})
