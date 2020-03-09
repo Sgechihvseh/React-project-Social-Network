@@ -1,15 +1,18 @@
 
 .nav{
 	grid-area: n;
-	background-color: burlywood;
+	border-top: solid #818181 3px;
+	background-color: #282828;
 	padding: 20px;
 }
 
 .item a {
-	color: white;
+	font-family: 'Times New Roman';
+	font-size: 20px;
+	color: #818181;
 	text-decoration: none;
 }
 
 .item a.active {
-	color: gold;
+	color: white;
 }
